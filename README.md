@@ -136,7 +136,9 @@ tp2/
 │   └── file.txt
 ├── Dokumentasi/
 │   ├── CLI.png
-│   └── PHP.png
+│   ├── PHP.png
+│   ├── cpp_sebelum.png
+│   └── cpp_setelah.png
 ├── desain.png
 ├── .gitignore
 └── README.md
@@ -213,9 +215,23 @@ Gunakan font monospace dan jendela terminal cukup lebar. Karakter berlebar khusu
 
 ## Dokumentasi
 
-Screenshot dibuat dari program yang dijalankan. CLI.png berisi tabel awal dan akhir C++, Java, serta Python, diambil dari stdout aktual lalu ditampilkan di browser agar semua kolom terbaca. Hanya bagian tabel dipilih; teks tabel tidak diketik ulang. PHP.png menampilkan HTML aktual dari testcase, termasuk tujuh objek dan foto.
+Screenshot dibuat dari program yang dijalankan. Pada C++, tangkapan layar terminal menampilkan kondisi tabel sebelum penambahan data (5 objek awal) dan setelah penambahan data melalui testcase (7 objek). Java dan Python terdokumentasi pada CLI.png, sedangkan PHP.png menampilkan hasil eksekusi mode HTML/web dengan foto produk.
 
-### C++, Java, dan Python
+### C++
+
+#### Sebelum ditambahkan
+
+![C++ sebelum ditambahkan](Dokumentasi/cpp_sebelum.png)
+
+[Buka screenshot C++ sebelum ditambahkan](Dokumentasi/cpp_sebelum.png).
+
+#### Setelah ditambahkan
+
+![C++ setelah ditambahkan](Dokumentasi/cpp_setelah.png)
+
+[Buka screenshot C++ setelah ditambahkan](Dokumentasi/cpp_setelah.png).
+
+### Java dan Python
 
 ![Lima objek awal dan tujuh objek setelah testcase pada tiga bahasa CLI](Dokumentasi/CLI.png)
 
