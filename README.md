@@ -216,6 +216,44 @@ Validasi juga diuji dengan ID duplikat, teks kosong, karakter kontrol, durasi no
 
 Gunakan font monospace dan jendela terminal cukup lebar. Karakter berlebar khusus seperti emoji/CJK dapat kurang sejajar karena tabel memakai panjang string bawaan bahasa; testcase menggunakan teks Latin/ASCII.
 
+## Penanganan error (Error Handling)
+
+Untuk menjaga keandalan program serta integritas data yang disimpan, seluruh bahasa pemrograman (C++, Java, Python, dan PHP) menerapkan serangkaian mekanisme validasi dan penanganan error sebagai berikut:
+
+### 1. Validasi Teks Kosong dan Whitespace
+- Input string dari pengguna dibersihkan dari spasi berlebih di awal maupun akhir (*trimming*).
+- Jika pengguna hanya menekan tombol *Enter* atau hanya memasukkan spasi kosong, input ditolak dengan pesan: `"Input tidak boleh kosong atau mengandung karakter kontrol."` dan sistem meminta input ulang.
+
+### 2. Pencegahan Karakter Kontrol (ISO Control Characters)
+- Sistem memeriksa setiap karakter pada input teks untuk memastikan tidak mengandung karakter kontrol (ASCII < 32 atau ASCII 127).
+- Pencegahan ini menjaga agar format pembatas tabel CLI tidak rusak oleh karakter *non-printable* atau *escape sequences*.
+- Penanganan karakter akhir baris (`\r` dan `\n`) dilakukan secara adaptif agar file input berbasis CRLF maupun LF dapat dibaca dengan benar di berbagai sistem operasi.
+
+### 3. Validasi Keunikan ID (*Unique Key Constraint*)
+- Atribut `idFilm` berfungsi sebagai identitas unik setiap objek film.
+- Sebelum atribut lainnya diproses, program memeriksa seluruh objek yang telah tersimpan:
+  - **C++, Java, Python:** Jika ID telah ada di daftar, sistem menampilkan `"ID sudah digunakan."` dan membatalkan proses penambahan agar kembali ke menu utama tanpa menambah objek setengah jadi.
+  - **PHP (CLI):** Menghentikan eksekusi dengan pesan `"Baris X: ID film sudah digunakan."`.
+  - **PHP (Web):** Memberikan peringatan visual melalui session flash message dan menolak form submit.
+
+### 4. Validasi Tipe Data dan Rentang Nilai Durasi
+- Durasi film wajib berupa bilangan bulat positif (*integer*) dalam rentang **1–999 menit** (maksimal 3 digit angka).
+- Jika input mengandung huruf, tanda desimal, bernilai negatif, angka nol, atau melebihi 999:
+  - **CLI (C++, Java, Python):** Sistem menampilkan pesan peringatan `"Durasi harus berupa bilangan bulat 1-999."` dan meminta pengguna memasukkan kembali nilai durasi yang valid secara spesifik tanpa mengulang input dari awal.
+  - **PHP (CLI & Web):** Menggunakan fungsi `ctype_digit()` dan pengecekan rentang nilai untuk memastikan input numerik murni.
+
+### 5. Penanganan Akhir Input Terputus (*End of File / EOF Handling*)
+- Saat input dialihkan melalui berkas (`file.txt`) atau stream masukan terputus mendadak (EOF / `Ctrl+D` / `Ctrl+Z`), program mendeteksi ketiadaan baris berikutnya secara anggun (*graceful exit*).
+- Program langsung menghentikan pembacaan dan keluar tanpa menghasilkan objek setengah lengkap (*partial object*) serta mencegah *infinite loop* pada pembacaan stream.
+
+### 6. Validasi Menu Interaktif
+- Input pilihan menu selain `1` (Tambah) dan `0` (Keluar) ditangani dengan menampilkan `"Menu tidak tersedia."`, kemudian menampilkan menu kembali tanpa menyebabkan program crash.
+
+### 7. Keamanan dan Validasi Tambahan pada PHP
+- **Keamanan Tampilan (XSS Prevention):** Seluruh data teks yang dicetak ke HTML melalui fungsi pembantu `aman()` yang membungkus `htmlspecialchars()` dengan flag `ENT_QUOTES | ENT_SUBSTITUTE` untuk mencegah serangan *Cross-Site Scripting*.
+- **Pemeriksaan File Input (Mode CLI):** Memvalidasi jumlah argumen CLI (`$argc`), memastikan keberadaan dan keterbacaan file dengan `is_file()` dan `is_readable()`, serta memverifikasi bahwa setiap baris tepat memiliki 10 atribut yang dipisahkan oleh tanda *pipe* (`|`).
+- **Post/Redirect/Get (PRG) Pattern (Mode Web):** Mencegah penambahan data ganda akibat *refresh* halaman browser dengan memanfaatkan session dan redirect header HTTP.
+
 ## Dokumentasi
 
 Screenshot dibuat dari program yang dijalankan. Pada setiap bahasa CLI (C++, Java, Python), tangkapan layar terminal menampilkan kondisi tabel sebelum penambahan data (5 objek awal) dan setelah penambahan data melalui testcase (7 objek). Sedangkan PHP.png menampilkan hasil eksekusi mode HTML/web dengan foto produk.
