@@ -135,10 +135,13 @@ tp2/
 │   ├── Main.php
 │   └── file.txt
 ├── Dokumentasi/
-│   ├── CLI.png
-│   ├── PHP.png
 │   ├── cpp_sebelum.png
-│   └── cpp_setelah.png
+│   ├── cpp_setelah.png
+│   ├── java_sebelum.png
+│   ├── java_setelah.png
+│   ├── python_sebelum.png
+│   ├── python_setelah.png
+│   └── PHP.png
 ├── desain.png
 ├── .gitignore
 └── README.md
@@ -215,7 +218,7 @@ Gunakan font monospace dan jendela terminal cukup lebar. Karakter berlebar khusu
 
 ## Dokumentasi
 
-Screenshot dibuat dari program yang dijalankan. Pada C++, tangkapan layar terminal menampilkan kondisi tabel sebelum penambahan data (5 objek awal) dan setelah penambahan data melalui testcase (7 objek). Java dan Python terdokumentasi pada CLI.png, sedangkan PHP.png menampilkan hasil eksekusi mode HTML/web dengan foto produk.
+Screenshot dibuat dari program yang dijalankan. Pada setiap bahasa CLI (C++, Java, Python), tangkapan layar terminal menampilkan kondisi tabel sebelum penambahan data (5 objek awal) dan setelah penambahan data melalui testcase (7 objek). Sedangkan PHP.png menampilkan hasil eksekusi mode HTML/web dengan foto produk.
 
 ### C++
 
@@ -231,11 +234,33 @@ Screenshot dibuat dari program yang dijalankan. Pada C++, tangkapan layar termin
 
 [Buka screenshot C++ setelah ditambahkan](Dokumentasi/cpp_setelah.png).
 
-### Java dan Python
+### Java
 
-![Lima objek awal dan tujuh objek setelah testcase pada tiga bahasa CLI](Dokumentasi/CLI.png)
+#### Sebelum ditambahkan
 
-[Buka screenshot CLI ukuran penuh](Dokumentasi/CLI.png).
+![Java sebelum ditambahkan](Dokumentasi/java_sebelum.png)
+
+[Buka screenshot Java sebelum ditambahkan](Dokumentasi/java_sebelum.png).
+
+#### Setelah ditambahkan
+
+![Java setelah ditambahkan](Dokumentasi/java_setelah.png)
+
+[Buka screenshot Java setelah ditambahkan](Dokumentasi/java_setelah.png).
+
+### Python
+
+#### Sebelum ditambahkan
+
+![Python sebelum ditambahkan](Dokumentasi/python_sebelum.png)
+
+[Buka screenshot Python sebelum ditambahkan](Dokumentasi/python_sebelum.png).
+
+#### Setelah ditambahkan
+
+![Python setelah ditambahkan](Dokumentasi/python_setelah.png)
+
+[Buka screenshot Python setelah ditambahkan](Dokumentasi/python_setelah.png).
 
 ### PHP
 
