@@ -1,0 +1,9 @@
+*.class
+*.o
+*.obj
+*.exe
+*.pyc
+__pycache__/
+build/
+/CPP/main
+/PHP/hasil.html

@@ -1,0 +1,2 @@
+F006|Petualangan Panjang di Negeri Awan|Petualangan keluarga|120|Studio Pelangi Nusantara|Indonesia|Semua umur|Blender|Cycles|GLTF
+F007|Robot Penjaga Bulan|Fiksi ilmiah|98|Studio Bulan|Indonesia|7+|Maya|Arnold|FBX
